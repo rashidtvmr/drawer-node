@@ -18,8 +18,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+app.get('*', function(req, res) {
+    res.sendFile('index.html', {root: path.join(__dirname, 'public')});
+  });
 
 mongoose.connect(db_url, () => {
     console.log('DB connected');

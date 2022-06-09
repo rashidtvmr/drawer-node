@@ -30,7 +30,7 @@ const getUsersAnnotations = (req, res) => {
     AnnotationModel.find({ createdBy: req.user.id }).then(userAnnoations => {
         res.json({ data: userAnnoations });
     }).catch(err => {
-        res.json({ status: 500, message: 'Unable to find your annotations' })
+        res.status(500).json({ message: 'Unable to find your annotations' })
     });
 }
 
@@ -39,7 +39,7 @@ const getAnnotationsByID = (req, res) => {
         console.log(userAnnoations, req.params)
         res.json([...userAnnoations.annotations]);
     }).catch(err => {
-        res.json({ status: 500, message: 'Unable to find your annotations' })
+        res.status(500).json({ message: 'Unable to find your annotations' })
     });
 }
 
