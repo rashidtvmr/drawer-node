@@ -1,4 +1,4 @@
-
+const db_url = "mongodb+srv://rashidtvmr:Mass94877348@cluster0.uppi8.mongodb.net/sample?retryWrites=true&w=majority";
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
